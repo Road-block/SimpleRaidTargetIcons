@@ -1,0 +1,143 @@
+<Bindings>
+	<Binding name="SRTI_SHOW" header="SRTI_TITLE">
+		SRTI.ShowFromBinding();
+	</Binding>
+	<Binding name="SRTI_MOUSEOVER" description="Press and swipe then release" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.StartMouseoverMark();
+		else
+			SRTI.StopMouseoverMark();
+		end
+	</Binding>
+	<Binding name="SRTI_MOUSEOVER_CLEAR" description="Press and swipe then release" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.StartMouseoverClear();
+		else
+			SRTI.StopMouseoverClear();
+		end
+	</Binding>	
+	<Binding name="SRTI_MARKORDER" description="Press to show Bar" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowMarkOrderBar(true);
+		else
+			SRTI.ShowMarkOrderBar();
+		end
+	</Binding>
+	<Binding name="SRTI_STAR">
+		SRTI.SetRaidTarget(1);
+	</Binding>
+	<Binding name="SRTI_CIRCLE">
+		SRTI.SetRaidTarget(2);
+	</Binding>
+	<Binding name="SRTI_DIAMOND">
+		SRTI.SetRaidTarget(3);
+	</Binding>
+	<Binding name="SRTI_TRIANGLE">
+		SRTI.SetRaidTarget(4);
+	</Binding>
+	<Binding name="SRTI_MOON">
+		SRTI.SetRaidTarget(5);
+	</Binding>
+	<Binding name="SRTI_SQUARE">
+		SRTI.SetRaidTarget(6);
+	</Binding>
+	<Binding name="SRTI_CROSS">
+		SRTI.SetRaidTarget(7);
+	</Binding>
+	<Binding name="SRTI_SKULL">
+		SRTI.SetRaidTarget(8);
+	</Binding>
+	<Binding name="SRTI_CLEAR">
+		SRTI.SetRaidTarget();
+	</Binding>
+
+	<Binding name="SRTI_TARSTAR" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(1,true);
+			SetCursor(string.format(SRTI.cursor,1))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARCIRCLE" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(2,true);
+			SetCursor(string.format(SRTI.cursor,2))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARDIAMOND" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(3,true);
+			SetCursor(string.format(SRTI.cursor,3))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARTRIANGLE" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(4,true);
+			SetCursor(string.format(SRTI.cursor,4))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARMOON" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(5,true);
+			SetCursor(string.format(SRTI.cursor,5))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARSQUARE" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(6,true);
+			SetCursor(string.format(SRTI.cursor,6))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARCROSS" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(7,true);
+			SetCursor(string.format(SRTI.cursor,7))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	<Binding name="SRTI_TARSKULL" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.TargetScan(8,true);
+			SetCursor(string.format(SRTI.cursor,8))
+		else
+			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
+			SRTI.scanTarget = nil
+			ResetCursor()
+		end
+	</Binding>
+	
+</Bindings>
