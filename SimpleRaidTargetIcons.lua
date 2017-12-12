@@ -274,12 +274,12 @@ for i=8,1,-1 do
 			srti.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			local mark = this:GetID()
 			srti.TargetScan(mark)
-			SetCursor(string.format(srti.cursor,mark))
+			SRTI.ShowCursorCompanion(mark)
 		end)
 	btn:SetScript("OnMouseUp", function()
 			srti.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			srti.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end)
 	btn:SetScript("OnEnter", function()
 			GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT")
@@ -1773,11 +1773,13 @@ function srti.UpdateClassCount()
 end
 
 local lastMarkAction = 0
-local function MouseOverMark(mark)
+function srti.MouseOverMark(mark)
+	local unit = UnitExists("mouseover") and "mouseover"
+	if not (unit) then return false end
 	local now = GetTime()
-	if (now - lastMarkAction) > TOOLTIP_UPDATE_TIME then
+	if (now - lastMarkAction) >= TOOLTIP_UPDATE_TIME then
 		lastMarkAction = now
-		SetRaidTarget("mouseover",mark)
+		SetRaidTarget(unit,mark)
 		return true
 	end
 	return false
@@ -1812,7 +1814,7 @@ function srti.MassMark()
 				if (CC_ClassCount[class] ~= nil) and (CC_ClassCount[class] > 0) and CC_ClassCount[class] > (assigned_cc_class[class] or 0) then -- do we have the class that can cc it
 					local marks = cc_marks[class]
 					for _, mark in ipairs(marks) do
-						if not (assigned_cc_marks[mark]) and MouseOverMark(mark) then
+						if not (assigned_cc_marks[mark]) and srti.MouseOverMark(mark) then
 							assigned_cc_marks[mark]=true
 							assigned_cc_class[class] = (assigned_cc_class[class] ~= nil) and (assigned_cc_class[class]+1) or 1
 							assigned_mark_class[getglobal("RAID_TARGET_"..mark)] = class
@@ -1841,7 +1843,7 @@ function srti.PackMark(name)
 			pack = 8-pack
 		end
     for _, mark in ipairs(marksCol[pack]) do
-      if not (assigned_cc_marks[mark]) and MouseOverMark(mark) then
+      if not (assigned_cc_marks[mark]) and srti.MouseOverMark(mark) then
         assigned_cc_marks[mark] = true
         return true
       end
@@ -1886,7 +1888,7 @@ function srti.Target(unit)
 	TargetUnit(unit)
 	srti.scanTarget = nil
 	PlaySound("igCharacterNPCSelect")
-	ResetCursor()
+	SRTI.ShowCursorCompanion()
 end
 
 function srti.TargetScan(icon,fromBinding)
@@ -1933,6 +1935,35 @@ function srti.ShowMarkOrderBar(show)
 		srti.barFrame:Show()
 	else
 		srti.barFrame:Hide()
+	end
+end
+
+srti.cursorFrame = CreateFrame("Frame","SRTICursorCompanionFrame",UIParent)
+srti.cursorFrame:SetWidth(24)
+srti.cursorFrame:SetHeight(24)
+srti.cursorFrame.tex = srti.cursorFrame:CreateTexture("SRTICursorCompanionFrameTex","OVERLAY")
+srti.cursorFrame.tex:SetWidth(24)
+srti.cursorFrame.tex:SetHeight(24)
+srti.cursorFrame.tex:SetPoint("CENTER",srti.cursorFrame,"CENTER",0,0)
+srti.cursorFrame.tex:SetTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcons")
+srti.cursorFrame:Hide()
+srti.cursorFrame._lastUpdate = 0
+srti.cursorFrame:SetScript("OnUpdate",function()
+		this._lastUpdate = this._lastUpdate + arg1
+		--if (this._lastUpdate >= TOOLTIP_UPDATE_TIME) then
+			this._lastUpdate = 0
+			local x,y = GetCursorPosition()
+			local s = UIParent:GetEffectiveScale()
+			this:ClearAllPoints()
+			this:SetPoint("CENTER",UIParent,"BOTTOMLEFT",(x/s)+24,(y/s)-24)
+		--end
+	end)
+function srti.ShowCursorCompanion(mark)
+	if (mark) then
+		SetRaidTargetIconTexture(srti.cursorFrame.tex,mark)
+		srti.cursorFrame:Show()
+	else
+		srti.cursorFrame:Hide()
 	end
 end
 

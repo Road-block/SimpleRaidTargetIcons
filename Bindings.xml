@@ -23,120 +23,181 @@
 			SRTI.ShowMarkOrderBar();
 		end
 	</Binding>
-	<Binding name="SRTI_STAR">
-		SRTI.SetRaidTarget(1);
+	<Binding name="SRTI_STAR" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(1)
+		else
+			if (not SRTI.MouseOverMark(1)) then
+				SRTI.SetRaidTarget(1);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_CIRCLE">
-		SRTI.SetRaidTarget(2);
+	<Binding name="SRTI_CIRCLE" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(2)
+		else
+			if (not SRTI.MouseOverMark(2)) then
+				SRTI.SetRaidTarget(2);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_DIAMOND">
-		SRTI.SetRaidTarget(3);
+	<Binding name="SRTI_DIAMOND" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(3)
+		else
+			if (not SRTI.MouseOverMark(3)) then
+				SRTI.SetRaidTarget(3);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_TRIANGLE">
-		SRTI.SetRaidTarget(4);
+	<Binding name="SRTI_TRIANGLE" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(4)
+		else
+			if (not SRTI.MouseOverMark(4)) then
+				SRTI.SetRaidTarget(4);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_MOON">
-		SRTI.SetRaidTarget(5);
+	<Binding name="SRTI_MOON" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(5)
+		else
+			if (not SRTI.MouseOverMark(5)) then
+				SRTI.SetRaidTarget(5);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_SQUARE">
-		SRTI.SetRaidTarget(6);
+	<Binding name="SRTI_SQUARE" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(6)
+		else
+			if (not SRTI.MouseOverMark(6)) then
+				SRTI.SetRaidTarget(6);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_CROSS">
-		SRTI.SetRaidTarget(7);
+	<Binding name="SRTI_CROSS" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(7)
+		else
+			if (not SRTI.MouseOverMark(7)) then
+				SRTI.SetRaidTarget(7);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_SKULL">
-		SRTI.SetRaidTarget(8);
+	<Binding name="SRTI_SKULL" runOnUp="true">
+		if (keystate == "down") then
+			SRTI.ShowCursorCompanion(8)
+		else
+			if (not SRTI.MouseOverMark(8)) then
+				SRTI.SetRaidTarget(8);
+			end
+			SRTI.ShowCursorCompanion()
+		end
 	</Binding>
-	<Binding name="SRTI_CLEAR">
-		SRTI.SetRaidTarget();
+	<Binding name="SRTI_CLEAR" runOnUp="true">
+		if (keystate == "down") then
+		else
+			if (not SRTI.MouseOverMark(0)) then
+				SRTI.SetRaidTarget();
+			end
+		end	
 	</Binding>
 
 	<Binding name="SRTI_TARSTAR" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(1,true);
-			SetCursor(string.format(SRTI.cursor,1))
+			SRTI.ShowCursorCompanion(1)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARCIRCLE" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(2,true);
-			SetCursor(string.format(SRTI.cursor,2))
+			SRTI.ShowCursorCompanion(2)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARDIAMOND" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(3,true);
-			SetCursor(string.format(SRTI.cursor,3))
+			SRTI.ShowCursorCompanion(3)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARTRIANGLE" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(4,true);
-			SetCursor(string.format(SRTI.cursor,4))
+			SRTI.ShowCursorCompanion(4)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARMOON" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(5,true);
-			SetCursor(string.format(SRTI.cursor,5))
+			SRTI.ShowCursorCompanion(5)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARSQUARE" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(6,true);
-			SetCursor(string.format(SRTI.cursor,6))
+			SRTI.ShowCursorCompanion(6)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARCROSS" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(7,true);
-			SetCursor(string.format(SRTI.cursor,7))
+			SRTI.ShowCursorCompanion(7)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	<Binding name="SRTI_TARSKULL" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(8,true);
-			SetCursor(string.format(SRTI.cursor,8))
+			SRTI.ShowCursorCompanion(8)
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
-			ResetCursor()
+			SRTI.ShowCursorCompanion()
 		end
 	</Binding>
 	
