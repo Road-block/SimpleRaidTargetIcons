@@ -29,7 +29,7 @@ This can for example be used to retain control of masterlooting while allowing a
     - Mark cleaner. Hold keybind and swipe the cursor across a bunch of marked mobs to remove all marks.
 
 ### Caveats
-SRTI has only been tested on the English client. Mass marking will not work without localization (there will be no errors, they will just silently fail)
+SRTI has only been tested on the English client. Mass marking will not work without localization (there will be no errors, they will just silently fail)  
 SRTI is not a replacement for BananaBar and will likely never be, despite the overlapping features.  
 It doesn't continuously scan group targets for performance reasons, so features like showing marked targets HP or number of group members targetting a mark are not in the scope of this addon.  
 If you want those features use the addon that provides them, the two can co-exist without issues.  
