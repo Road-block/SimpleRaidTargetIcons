@@ -18,15 +18,15 @@ Most of the options can be selected and tested without a party there.
 This can for example be used to retain control of masterlooting while allowing a puller / tank to mark.
 3. Support for double-click or modifier-click radial marking menu on many unitframes (pfUI, Luna, oRA2, Blizzard unitframes)
 4. On demand mark/kill order bar (shown at the cursor on keybind) with icons to target existing marks. ![SimpleRaidTargetIcons Mark Order]()
-  - Click the icon and the addon will do a target scan of everyone in your group to find that target.
-  - Alternatively click and drag the icon over a group of mobs and the addon will automatically target the one with the matching mark.
+    - Click the icon and the addon will do a target scan of everyone in your group to find that target.
+    - Alternatively click and drag the icon over a group of mobs and the addon will automatically target the one with the matching mark.
 5. A bunch of keybinds provided in the default keybinding menu to perform various tasks:
-  - Mouseover CC mark groups of mobs intelligently, based on mob types and CC classes present in the group.
-  - Mouseover mass mark Garr Firesworn, Core Hound packs, Majordomo adds for RL convenience (more to be added)
-  - Keybind to mark your target or mouseover unit.
-    - Pressing and holding the keybind loads a mark on the cursor to "drop" on a mouseover unit.
-  - Load a specific mark on the cursor and mouseover marked mobs to target that mark.
-  - Mark cleaner. Hold keybind and swipe the cursor across a bunch of marked mobs to remove all marks.
+    - Mouseover CC mark groups of mobs intelligently, based on mob types and CC classes present in the group.
+    - Mouseover mass mark Garr Firesworn, Core Hound packs, Majordomo adds for RL convenience (more to be added)
+    - Keybind to mark your target or mouseover unit.
+      - Pressing and holding the keybind loads a mark on the cursor to "drop" on a mouseover unit.
+    - Load a specific mark on the cursor and mouseover marked mobs to target that mark.
+    - Mark cleaner. Hold keybind and swipe the cursor across a bunch of marked mobs to remove all marks.
 
 ### Caveats
 SRTI has only been tested on the English client. Mass marking will not work without localization (there will be no errors, they will just silently fail)
