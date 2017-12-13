@@ -27,6 +27,7 @@ This can for example be used to retain control of masterlooting while allowing a
       - Pressing and holding the keybind loads a mark on the cursor to "drop" on a mouseover unit.
     - Load a specific mark on the cursor and mouseover marked mobs to target that mark.
     - Mark cleaner. Hold keybind and swipe the cursor across a bunch of marked mobs to remove all marks.
+![SimpleRaidTargetIcons Keybinds](https://github.com/Road-block/SimpleRaidTargetIcons/raw/docs/srti_keybinds.png)
 
 ### Caveats
 SRTI has only been tested on the English client. Mass marking will not work without localization (there will be no errors, they will just silently fail)  
