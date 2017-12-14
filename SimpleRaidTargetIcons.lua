@@ -78,26 +78,37 @@ BINDING_NAME_SRTI_TARSKULL = "Target Skull"
 BINDING_NAME_SRTI_CLEAR = "Remove Icon"
 
 local iconStrings = {
-	none = 0,
-	clear = 0,
-	remove = 0,
-	yellow = 1,
-	star = 1,
-	orange = 2,
-	circle = 2,
-	purple = 3,
-	diamond = 3,
-	green = 4,
-	triangle = 4,
-	silver = 5,
-	moon = 5,
-	blue = 6,
-	square = 6,
-	red = 7,
-	x = 7,
-	cross = 7,
-	white = 8,
-	skull = 8,
+	none 			= 0,
+	clear 		= 0,
+	remove 		= 0,
+	yellow 		= 1,
+	star 			= 1,
+	orange 		= 2,
+	circle 		= 2,
+	purple 		= 3,
+	diamond 	= 3,
+	green 		= 4,
+	triangle 	= 4,
+	silver 		= 5,
+	moon 			= 5,
+	blue 			= 6,
+	square 		= 6,
+	red 			= 7,
+	x 				= 7,
+	cross 		= 7,
+	white 		= 8,
+	skull 		= 8,
+}
+
+local iconCStrings = {
+	[iconStrings.skull] 		= "%s|cffffffffSkull|r",
+	[iconStrings.cross] 		= "%s|cffFF4500Cross|r",
+	[iconStrings.square] 		= "%s|cff00BFFFSquare|r",
+	[iconStrings.moon] 			= "%s|cffc7c7cfMoon|r",
+	[iconStrings.triangle] 	= "%s|cff7CFC00Triangle",
+	[iconStrings.diamond] 	= "%s|cffff00ffDiamond",
+	[iconStrings.circle] 		= "%s|cffff8000Circle",
+	[iconStrings.star] 			= "%s|cffffff00Star",
 }
 
 local iconNames = {
@@ -249,6 +260,8 @@ srti.cursorFrame.tex:SetWidth(24)
 srti.cursorFrame.tex:SetHeight(24)
 srti.cursorFrame.tex:SetPoint("CENTER",srti.cursorFrame,"CENTER",0,0)
 srti.cursorFrame.tex:SetTexture("Interface\\TargetingFrame\\UI-RaidTargetingIcons")
+srti.cursorFrame.text = srti.cursorFrame:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall")
+srti.cursorFrame.text:SetPoint("TOP",srti.cursorFrame,"BOTTOM",0,-2)
 srti.cursorFrame:Hide()
 srti.cursorFrame._lastUpdate = 0
 srti.cursorFrame:SetScript("OnUpdate",function()
@@ -261,8 +274,15 @@ srti.cursorFrame:SetScript("OnUpdate",function()
 			this:SetPoint("CENTER",UIParent,"BOTTOMLEFT",(x/s)+24,(y/s)-24)
 		--end
 	end)
-function srti.ShowCursorCompanion(mark)
+function srti.ShowCursorCompanion(mark,mode)
 	if (mark) then
+		if mode == "mark" then
+			srti.cursorFrame.text:SetText(string.format(iconCStrings[mark],"Mark "))
+		elseif mode == "target" then
+			srti.cursorFrame.text:SetText(string.format(iconCStrings[mark],"Target "))
+		else
+			srti.cursorFrame.text:SetText("")
+		end
 		SetRaidTargetIconTexture(srti.cursorFrame.tex,mark)
 		srti.cursorFrame:Show()
 	else
@@ -303,7 +323,7 @@ for i=8,1,-1 do
 			srti.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			local mark = this:GetID()
 			srti.TargetScan(mark)
-			srti.ShowCursorCompanion(mark)
+			srti.ShowCursorCompanion(mark,"target")
 		end)
 	btn:SetScript("OnMouseUp", function()
 			srti.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")

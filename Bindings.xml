@@ -25,7 +25,7 @@
 	</Binding>
 	<Binding name="SRTI_STAR" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(1)
+			SRTI.ShowCursorCompanion(1,"mark")
 		else
 			if (not SRTI.MouseOverMark(1)) then
 				SRTI.SetRaidTarget(1);
@@ -35,7 +35,7 @@
 	</Binding>
 	<Binding name="SRTI_CIRCLE" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(2)
+			SRTI.ShowCursorCompanion(2,"mark")
 		else
 			if (not SRTI.MouseOverMark(2)) then
 				SRTI.SetRaidTarget(2);
@@ -45,7 +45,7 @@
 	</Binding>
 	<Binding name="SRTI_DIAMOND" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(3)
+			SRTI.ShowCursorCompanion(3,"mark")
 		else
 			if (not SRTI.MouseOverMark(3)) then
 				SRTI.SetRaidTarget(3);
@@ -55,7 +55,7 @@
 	</Binding>
 	<Binding name="SRTI_TRIANGLE" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(4)
+			SRTI.ShowCursorCompanion(4,"mark")
 		else
 			if (not SRTI.MouseOverMark(4)) then
 				SRTI.SetRaidTarget(4);
@@ -65,7 +65,7 @@
 	</Binding>
 	<Binding name="SRTI_MOON" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(5)
+			SRTI.ShowCursorCompanion(5,"mark")
 		else
 			if (not SRTI.MouseOverMark(5)) then
 				SRTI.SetRaidTarget(5);
@@ -75,7 +75,7 @@
 	</Binding>
 	<Binding name="SRTI_SQUARE" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(6)
+			SRTI.ShowCursorCompanion(6,"mark")
 		else
 			if (not SRTI.MouseOverMark(6)) then
 				SRTI.SetRaidTarget(6);
@@ -85,7 +85,7 @@
 	</Binding>
 	<Binding name="SRTI_CROSS" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(7)
+			SRTI.ShowCursorCompanion(7,"mark")
 		else
 			if (not SRTI.MouseOverMark(7)) then
 				SRTI.SetRaidTarget(7);
@@ -95,7 +95,7 @@
 	</Binding>
 	<Binding name="SRTI_SKULL" runOnUp="true">
 		if (keystate == "down") then
-			SRTI.ShowCursorCompanion(8)
+			SRTI.ShowCursorCompanion(8,"mark")
 		else
 			if (not SRTI.MouseOverMark(8)) then
 				SRTI.SetRaidTarget(8);
@@ -116,7 +116,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(1,true);
-			SRTI.ShowCursorCompanion(1)
+			SRTI.ShowCursorCompanion(1,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -127,7 +127,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(2,true);
-			SRTI.ShowCursorCompanion(2)
+			SRTI.ShowCursorCompanion(2,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -138,7 +138,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(3,true);
-			SRTI.ShowCursorCompanion(3)
+			SRTI.ShowCursorCompanion(3,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -149,7 +149,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(4,true);
-			SRTI.ShowCursorCompanion(4)
+			SRTI.ShowCursorCompanion(4,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -160,7 +160,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(5,true);
-			SRTI.ShowCursorCompanion(5)
+			SRTI.ShowCursorCompanion(5,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -171,7 +171,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(6,true);
-			SRTI.ShowCursorCompanion(6)
+			SRTI.ShowCursorCompanion(6,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -182,7 +182,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(7,true);
-			SRTI.ShowCursorCompanion(7)
+			SRTI.ShowCursorCompanion(7,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
@@ -193,7 +193,7 @@
 		if (keystate == "down") then
 			SRTI.barFrame:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.TargetScan(8,true);
-			SRTI.ShowCursorCompanion(8)
+			SRTI.ShowCursorCompanion(8,"target")
 		else
 			SRTI.barFrame:UnregisterEvent("UPDATE_MOUSEOVER_UNIT")
 			SRTI.scanTarget = nil
