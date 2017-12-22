@@ -8,74 +8,75 @@
 
 local srti = {}
 srti.version = GetAddOnMetadata("simpleraidtargeticons","version")
+local L = SRTI_LOCALE
 
 SRTI_TITLE = "SimpleRaidTargetIcons"
 SRTI_HEADER = SRTI_TITLE .. " " .. srti.version
 
-SRTI_MSG_OUT_OF_RANGE = SRTI_TITLE .. " - %1Party leader is out of range of target."
-SRTI_MSG_PROMOTED = SRTI_TITLE .. " - %1Promoted"
-SRTI_MSG_NOT_PROMOTED = SRTI_TITLE .. " - %1Not Promoted"
-SRTI_MSG_DEMOTED = SRTI_TITLE .. " - %1Demoted"
+SRTI_MSG_OUT_OF_RANGE = SRTI_TITLE .. L[" - %1Party leader is out of range of target."]
+SRTI_MSG_PROMOTED = SRTI_TITLE .. L[" - %1Promoted"]
+SRTI_MSG_NOT_PROMOTED = SRTI_TITLE .. L[" - %1Not Promoted"]
+SRTI_MSG_DEMOTED = SRTI_TITLE .. L[" - %1Demoted"]
 
-SRTI_MSG_HELP_TEXT = SRTI_HEADER .. " - %0/srti\n no command opens the options menu\n commands to set icon on target"
+SRTI_MSG_HELP_TEXT = SRTI_HEADER .. L[" - %0/srti\n no command opens the options menu\n commands to set icon on target"]
 
 SRTI_UNIT_SRTI = "SRTI"
-SRTI_UNIT_ASSISTANTS = "SRTI Assistants"
-SRTI_UNIT_ASSISTANT = "SRTI Assistant"
-SRTI_UNIT_ASSISTANT_PROMOTE = "Promote SRTI Assistant"
-SRTI_UNIT_ASSISTANT_PROMOTE_TEXT = "Promotes party member to SRTI assistant."
-SRTI_UNIT_ASSISTANT_DEMOTE = "Demote SRTI Assistant"
-SRTI_UNIT_ASSISTANT_DEMOTE_TEXT = "Demotes party member from SRTI assistant."
-SRTI_UNIT_ASSISTANT_NOT_PROMOTED = "SRTI Not Promoted"
-SRTI_UNIT_ASSISTANT_DISABLED = "SRTI Disabled"
+SRTI_UNIT_ASSISTANTS = L["SRTI Assistants"]
+SRTI_UNIT_ASSISTANT = L["SRTI Assistant"]
+SRTI_UNIT_ASSISTANT_PROMOTE = L["Promote SRTI Assistant"]
+SRTI_UNIT_ASSISTANT_PROMOTE_TEXT = L["Promotes party member to SRTI assistant."]
+SRTI_UNIT_ASSISTANT_DEMOTE = L["Demote SRTI Assistant"]
+SRTI_UNIT_ASSISTANT_DEMOTE_TEXT = L["Demotes party member from SRTI assistant."]
+SRTI_UNIT_ASSISTANT_NOT_PROMOTED = L["SRTI Not Promoted"]
+SRTI_UNIT_ASSISTANT_DISABLED = L["SRTI Disabled"]
 
-SRTI_OPTIONS_HEADER = "Radial Menu Options"
-SRTI_OPTIONS_SINGLE_HEADER = "Left Click"
-SRTI_OPTIONS_SINGLE_MODIFIERS = "Modifiers"
+SRTI_OPTIONS_HEADER = L["Radial Menu Options"]
+SRTI_OPTIONS_SINGLE_HEADER = L["Left Click"]
+SRTI_OPTIONS_SINGLE_MODIFIERS = L["Modifiers"]
 SRTI_OPTIONS_SINGLE_CTRL = "Ctrl"
 SRTI_OPTIONS_SINGLE_ALT = "Alt"
 SRTI_OPTIONS_SINGLE_SHIFT = "Shift"
-SRTI_OPTIONS_DOUBLE_HEADER = "Double Left Click"
-SRTI_OPTIONS_DOUBLE_ENABLE = "Enable"
-SRTI_OPTIONS_DOUBLE_SPEED = "Double Click Speed - %s sec"
-SRTI_OPTIONS_DOUBLE_SPEED_MIN = "Quick"
-SRTI_OPTIONS_DOUBLE_SPEED_MAX = "Slow"
-SRTI_OPTIONS_BINDING_HEADER = "Key Bindings"
-SRTI_OPTIONS_HOVER = "Select Icon on Hover"
-SRTI_OPTIONS_HOVER_TIME = "Hover Wait Time - %s sec"
-SRTI_OPTIONS_HOVER_TIME_MIN = "Quick"
-SRTI_OPTIONS_HOVER_TIME_MAX = "Slow"
-SRTI_OPTIONS_TEST = "Test Me"
-SRTI_OPTIONS_TEST_HELP = "Click above to test settings"
+SRTI_OPTIONS_DOUBLE_HEADER = L["Double Left Click"]
+SRTI_OPTIONS_DOUBLE_ENABLE = L["Enable"]
+SRTI_OPTIONS_DOUBLE_SPEED = L["Double Click Speed - %s sec"]
+SRTI_OPTIONS_DOUBLE_SPEED_MIN = L["Quick"]
+SRTI_OPTIONS_DOUBLE_SPEED_MAX = L["Slow"]
+SRTI_OPTIONS_BINDING_HEADER = L["Key Bindings"]
+SRTI_OPTIONS_HOVER = L["Select Icon on Hover"]
+SRTI_OPTIONS_HOVER_TIME = L["Hover Wait Time - %s sec"]
+SRTI_OPTIONS_HOVER_TIME_MIN = L["Quick"]
+SRTI_OPTIONS_HOVER_TIME_MAX = L["Slow"]
+SRTI_OPTIONS_TEST = L["Test Me"]
+SRTI_OPTIONS_TEST_HELP = L["Click above to test settings"]
 
-SRTI_BINDINGS_BIND_HELP = "|cffffffffPress a key to bind |r%s"
-SRTI_BINDINGS_BIND_WARN_KEY = "|cffff0000%s Function will be Unbound from this Key!"
-SRTI_BINDINGS_BIND_WARN_UNBOUND = "|cffff0000%s Function will be Unbound!"
-SRTI_BINDINGS_UNBIND_HELP = "|cffff0000You are about to unbind key from |r%s"
-SRTI_BINDINGS_ESC = "Press |cffffffffEsc|r to cancel"
+SRTI_BINDINGS_BIND_HELP = L["|cffffffffPress a key to bind |r%s"]
+SRTI_BINDINGS_BIND_WARN_KEY = L["|cffff0000%s Function will be Unbound from this Key!"]
+SRTI_BINDINGS_BIND_WARN_UNBOUND = L["|cffff0000%s Function will be Unbound!"]
+SRTI_BINDINGS_UNBIND_HELP = L["|cffff0000You are about to unbind key from |r%s"]
+SRTI_BINDINGS_ESC = L["Press |cffffffffEsc|r to cancel"]
 
 BINDING_HEADER_SRTI_TITLE = SRTI_TITLE
-BINDING_NAME_SRTI_SHOW = "Show Radial Menu"
-BINDING_NAME_SRTI_MOUSEOVER = "Mouseover Mark CC"
-BINDING_NAME_SRTI_MOUSEOVER_CLEAR = "Mouseover Clear Marks"
-BINDING_NAME_SRTI_MARKORDER = "CC TargetBar"
-BINDING_NAME_SRTI_STAR = "Yellow Star Icon"
-BINDING_NAME_SRTI_CIRCLE = "Orange Circle Icon"
-BINDING_NAME_SRTI_DIAMOND = "Purple Diamond Icon"
-BINDING_NAME_SRTI_TRIANGLE = "Green Triangle Icon"
-BINDING_NAME_SRTI_MOON = "Silver Moon Icon"
-BINDING_NAME_SRTI_SQUARE = "Blue Square Icon"
-BINDING_NAME_SRTI_CROSS = "Red Cross Icon"
-BINDING_NAME_SRTI_SKULL = "White Skull Icon"
-BINDING_NAME_SRTI_TARSTAR = "Target Star"
-BINDING_NAME_SRTI_TARCIRCLE = "Target Circle"
-BINDING_NAME_SRTI_TARDIAMOND = "Target Diamond"
-BINDING_NAME_SRTI_TARTRIANGLE = "Target Triangle"
-BINDING_NAME_SRTI_TARMOON = "Target Moon"
-BINDING_NAME_SRTI_TARSQUARE = "Target Square"
-BINDING_NAME_SRTI_TARCROSS = "Target Cross"
-BINDING_NAME_SRTI_TARSKULL = "Target Skull"
-BINDING_NAME_SRTI_CLEAR = "Remove Icon"
+BINDING_NAME_SRTI_SHOW = L["Show Radial Menu"]
+BINDING_NAME_SRTI_MOUSEOVER = L["Mouseover Mark CC"]
+BINDING_NAME_SRTI_MOUSEOVER_CLEAR = L["Mouseover Clear Marks"]
+BINDING_NAME_SRTI_MARKORDER = L["CC TargetBar"]
+BINDING_NAME_SRTI_STAR = L["Yellow Star Icon"]
+BINDING_NAME_SRTI_CIRCLE = L["Orange Circle Icon"]
+BINDING_NAME_SRTI_DIAMOND = L["Purple Diamond Icon"]
+BINDING_NAME_SRTI_TRIANGLE = L["Green Triangle Icon"]
+BINDING_NAME_SRTI_MOON = L["Silver Moon Icon"]
+BINDING_NAME_SRTI_SQUARE = L["Blue Square Icon"]
+BINDING_NAME_SRTI_CROSS = L["Red Cross Icon"]
+BINDING_NAME_SRTI_SKULL = L["White Skull Icon"]
+BINDING_NAME_SRTI_TARSTAR = L["Target Star"]
+BINDING_NAME_SRTI_TARCIRCLE = L["Target Circle"]
+BINDING_NAME_SRTI_TARDIAMOND = L["Target Diamond"]
+BINDING_NAME_SRTI_TARTRIANGLE = L["Target Triangle"]
+BINDING_NAME_SRTI_TARMOON = L["Target Moon"]
+BINDING_NAME_SRTI_TARSQUARE = L["Target Square"]
+BINDING_NAME_SRTI_TARCROSS = L["Target Cross"]
+BINDING_NAME_SRTI_TARSKULL = L["Target Skull"]
+BINDING_NAME_SRTI_CLEAR = L["Remove Icon"]
 
 local iconStrings = {
 	none 			= 0,
@@ -101,26 +102,26 @@ local iconStrings = {
 }
 
 local iconCStrings = {
-	[iconStrings.skull] 		= "%s|cffffffffSkull|r",
-	[iconStrings.cross] 		= "%s|cffFF4500Cross|r",
-	[iconStrings.square] 		= "%s|cff00BFFFSquare|r",
-	[iconStrings.moon] 			= "%s|cffc7c7cfMoon|r",
-	[iconStrings.triangle] 	= "%s|cff7CFC00Triangle",
-	[iconStrings.diamond] 	= "%s|cffff00ffDiamond",
-	[iconStrings.circle] 		= "%s|cffff8000Circle",
-	[iconStrings.star] 			= "%s|cffffff00Star",
+	[iconStrings.skull] 		= L["%s|cffffffffSkull|r"],
+	[iconStrings.cross] 		= L["%s|cffFF4500Cross|r"],
+	[iconStrings.square] 		= L["%s|cff00BFFFSquare|r"],
+	[iconStrings.moon] 			= L["%s|cffc7c7cfMoon|r"],
+	[iconStrings.triangle] 	= L["%s|cff7CFC00Triangle|r"],
+	[iconStrings.diamond] 	= L["%s|cffff00ffDiamond|r"],
+	[iconStrings.circle] 		= L["%s|cffff8000Circle|r"],
+	[iconStrings.star] 			= L["%s|cffffff00Star|r"],
 }
 
 local iconNames = {
-	"remove icon",
-	"yellow star",
-	"orange circle",
-	"purple diamond",
-	"green triangle",
-	"silver moon",
-	"blue square",
-	"red cross",
-	"white skull",
+	L["remove icon"],
+	L["yellow star"],
+	L["orange circle"],
+	L["purple diamond"],
+	L["green triangle"],
+	L["silver moon"],
+	L["blue square"],
+	L["red cross"],
+	L["white skull"],
 }
 
 local marksCol = {
@@ -277,9 +278,9 @@ srti.cursorFrame:SetScript("OnUpdate",function()
 function srti.ShowCursorCompanion(mark,mode)
 	if (mark) then
 		if mode == "mark" then
-			srti.cursorFrame.text:SetText(string.format(iconCStrings[mark],"Mark "))
+			srti.cursorFrame.text:SetText(string.format(iconCStrings[mark],L["Mark "]))
 		elseif mode == "target" then
-			srti.cursorFrame.text:SetText(string.format(iconCStrings[mark],"Target "))
+			srti.cursorFrame.text:SetText(string.format(iconCStrings[mark],L["Target "]))
 		else
 			srti.cursorFrame.text:SetText("")
 		end
@@ -334,8 +335,8 @@ for i=8,1,-1 do
 			GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT")
 			GameTooltip:SetText("Simple Raid Target Icons")
 			local markName = getglobal("RAID_TARGET_"..this:GetID())
-			GameTooltip:AddDoubleLine(string.format("Click to target %s",markName),"Group Target Scan",0,1,0,0.5,0.5,0.5)
-			GameTooltip:AddDoubleLine("Click and drag over units.",string.format("Targets %s",markName),0,1,0,0.5,0.5,0.5)
+			GameTooltip:AddDoubleLine(string.format(L["Click to target %s"],markName),L["Group Target Scan"],0,1,0,0.5,0.5,0.5)
+			GameTooltip:AddDoubleLine(L["Drag icon over units."],string.format(L["Targets %s"],markName),0,1,0,0.5,0.5,0.5)
 			GameTooltip:Show()
 		end)
 	btn:SetScript("OnLeave", function()
@@ -1763,40 +1764,40 @@ local cc_marks = {
 	["SHAMAN"] = {6,4}		-- "square", "triangle"
 }
 local cc_type_class = {
-	["Humanoid"] = {"MAGE","HUNTER","WARLOCK","PRIEST"},
-	["Giant"] = {"HUNTER","WARLOCK"},
-	["Beast"] = {"MAGE","HUNTER","DRUID"},
-	["Dragonkin"] = {"HUNTER","DRUID"},
-	["Demon"] = {"WARLOCK","HUNTER"},
-	["Elemental"] = {"WARLOCK","HUNTER"},
-	["Undead"] = {"PRIEST","HUNTER"},
-	["Mechanical"] = {"HUNTER"}
+	[L["Humanoid"]] = {"MAGE","HUNTER","WARLOCK","PRIEST"},
+	[L["Giant"]] = {"HUNTER","WARLOCK"},
+	[L["Beast"]] = {"MAGE","HUNTER","DRUID"},
+	[L["Dragonkin"]] = {"HUNTER","DRUID"},
+	[L["Demon"]] = {"WARLOCK","HUNTER"},
+	[L["Elemental"]] = {"WARLOCK","HUNTER"},
+	[L["Undead"]] = {"PRIEST","HUNTER"},
+	[L["Mechanical"]] = {"HUNTER"}
 }
 local cc_immune = { -- individual npc exclusions
 	-- ZG
-  ["Gurubashi Champion"] = true,
-  ["Gurubashi Berserker"] = true,
+  [L["Gurubashi Champion"]] = true,
+  [L["Gurubashi Berserker"]] = true,
   -- MC
-  ["Ancient Core Hound"] = true,
-  ["Firelord"] = true,
-  ["Flameguard"] = true,
-  ["Firewalker"] = true,
+  [L["Ancient Core Hound"]] = true,
+  [L["Firelord"]] = true,
+  [L["Flameguard"]] = true,
+  [L["Firewalker"]] = true,
   -- BWL
-  ["Death Talon Captain"] = true,
-  ["Death Talon Wyrmguard"] = true,
-  ["Death Talon Flamescale"] = true,
-  ["Death Talon Seether"] = true,
-  ["Death Talon Overseer"] = true,
-  ["Blackwing Spellbinder"] = true,
-  ["Blackwing Technician"] = true,
-  ["Blackwing Warlock"] = true,  
+  [L["Death Talon Captain"]] = true,
+  [L["Death Talon Wyrmguard"]] = true,
+  [L["Death Talon Flamescale"]] = true,
+  [L["Death Talon Seether"]] = true,
+  [L["Death Talon Overseer"]] = true,
+  [L["Blackwing Spellbinder"]] = true,
+  [L["Blackwing Technician"]] = true,
+  [L["Blackwing Warlock"]] = true,  
 }
 local kill_targets = { -- this will have specific kill prio npcs
-	["Firewalker"] = 8,
-	["Flameguard"] = 7,
-	["Lava Elemental"] = 6,
-	["Lava Reaver"] = 5,
-	["Gurubashi Berserker"] = 8,
+	[L["Firewalker"]] = 8,
+	[L["Flameguard"]] = 7,
+	[L["Lava Elemental"]] = 6,
+	[L["Lava Reaver"]] = 5,
+	[L["Gurubashi Berserker"]] = 8,
 }
 function srti.UpdateClassCount()
 	CC_ClassCount = {}
@@ -1878,12 +1879,12 @@ function srti.MassMark()
 end
 
 local pack_marks = { -- negative index does reverse order, eg -1 marks skull, -2 marks skull>cross etc
-	["Slavering Ghoul"] = 8, -- just for debug
-	["Firesworn"] = 8,
-	["Core Hound"] = 5,
+	[L["Slavering Ghoul"]] = 8, -- just for debug
+	[L["Firesworn"]] = 8,
+	[L["Core Hound"]] = 5,
 	-- mixed group Majordomo adds
-	["Flamewaker Healer"] = 4,
-	["Flamewaker Elite"] = -4,
+	[L["Flamewaker Healer"]] = 4,
+	[L["Flamewaker Elite"]] = -4,
 }
 function srti.PackMark(name)
 	-- for debug

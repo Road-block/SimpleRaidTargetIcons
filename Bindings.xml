@@ -2,21 +2,21 @@
 	<Binding name="SRTI_SHOW" header="SRTI_TITLE">
 		SRTI.ShowFromBinding();
 	</Binding>
-	<Binding name="SRTI_MOUSEOVER" description="Press and swipe then release" runOnUp="true">
+	<Binding name="SRTI_MOUSEOVER" description="Hold and swipe then release" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.StartMouseoverMark();
 		else
 			SRTI.StopMouseoverMark();
 		end
 	</Binding>
-	<Binding name="SRTI_MOUSEOVER_CLEAR" description="Press and swipe then release" runOnUp="true">
+	<Binding name="SRTI_MOUSEOVER_CLEAR" description="Hold and swipe then release" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.StartMouseoverClear();
 		else
 			SRTI.StopMouseoverClear();
 		end
 	</Binding>	
-	<Binding name="SRTI_MARKORDER" description="Press to show Bar" runOnUp="true">
+	<Binding name="SRTI_MARKORDER" description="Hold to show Bar" runOnUp="true">
 		if (keystate == "down") then
 			SRTI.ShowMarkOrderBar(true);
 		else
