@@ -52,6 +52,9 @@ if LOCALE == "zhCN" then
   L["Core Hound"] = "熔火恶犬"
   L["Flamewaker Healer"] = "烈焰行者医师"
   L["Flamewaker Elite"] = "烈焰行者精英"
+  L["Buru Egg"] = "布鲁的卵" -- needs checking
+  L["Vekniss Warrior"] = "Vekniss Warrior" -- needs translation
+  L["Vekniss Soldier"] = "Vekniss Soldier" -- needs translation
   -- Options
   L[" - %0/srti\n no command opens the options menu\n commands to set icon on target"] = " - %0/srti\n 没有命令打开选项菜单\n 在目标上设置图标的命令"
   L[" - %1Demoted"] = " - %1降职"

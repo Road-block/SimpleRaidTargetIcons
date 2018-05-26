@@ -1,7 +1,7 @@
 ## Interface: 11200
 ## Title: SimpleRaidTargetIcons
 ## Author: RoadBlock
-## Version: 2.12
+## Version: 2.13
 ## Notes: Displays a widget on ctrl + left click or double click on a unit to let a player assign Raid Target Icons. Keybind Set Mark and Target Mark, as well show a mark order bar.
 ## Notes-zhCN: 径向菜单显示
 ## X-Credits: Brodrick (aka Kirov) original author

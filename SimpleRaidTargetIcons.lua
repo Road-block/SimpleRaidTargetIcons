@@ -1792,13 +1792,6 @@ local cc_immune = { -- individual npc exclusions
   [L["Blackwing Technician"]] = true,
   [L["Blackwing Warlock"]] = true,  
 }
-local kill_targets = { -- this will have specific kill prio npcs
-	[L["Firewalker"]] = 8,
-	[L["Flameguard"]] = 7,
-	[L["Lava Elemental"]] = 6,
-	[L["Lava Reaver"]] = 5,
-	[L["Gurubashi Berserker"]] = 8,
-}
 function srti.UpdateClassCount()
 	CC_ClassCount = {}
 	local inRaid
@@ -1851,11 +1844,13 @@ function srti.MassMark()
 		if (UnitClassification("mouseover") == "worldboss") or (UnitLevel("mouseover")==-1) then return end 
 		-- only mark enemies we can attack
 		if not UnitCanAttack("player","mouseover") then return end
-		-- don't try cc known immune mobs
 		local unitName = (UnitName("mouseover"))
-		if cc_immune[unitName] then return end
+		-- pass the name to our kill marker
+		if srti.KillMark(unitName) then return end		
 		-- pass the name to our special pack marker
 		if srti.PackMark(unitName) then return end
+		-- don't try cc known immune mobs
+		if cc_immune[unitName] then return end		
 		-- do we have another CCer we haven't assigned?
     if not next(CC_ClassCount) then return end
 		local creatureType = UnitCreatureType("mouseover")
@@ -1878,6 +1873,39 @@ function srti.MassMark()
 	end
 end
 
+local kill_targets = { -- this will have specific kill prio npcs
+	-- Molten Core
+	[L["Firewalker"]] = 8,
+	[L["Flameguard"]] = 7,
+	[L["Lava Elemental"]] = 6,
+	[L["Lava Reaver"]] = 5,
+	-- ZG
+	[L["Gurubashi Berserker"]] = 8,
+	-- AQ20
+	[L["Swarmguard Needler"]] = 8,
+	[L["Qiraji Warrior"]] = 7,
+	[L["Qiraji Swarmguard"]] = 8,
+	-- AQ40
+	[L["Qiraji Lasher"]] = 5,
+	-- [L["Vekniss Stinger"]] = 6,
+	[L["Vekniss Soldier"]] = 8,
+	[L["Qiraji Brainwasher"]] = 8,
+	[L["Qiraji Champion"]] = 4,
+	-- Naxx
+	[L["Venom Stalker"]] = 8,
+	[L["Carrion Spinner"]] = 7,
+}
+function srti.KillMark(name)
+	local kill = kill_targets[name]
+	if kill ~= nil then
+    if not (assigned_cc_marks[kill]) and srti.MouseOverMark(kill) then
+      assigned_cc_marks[kill] = true
+      return true
+    end		
+	end
+	return false
+end
+
 local pack_marks = { -- negative index does reverse order, eg -1 marks skull, -2 marks skull>cross etc
 	[L["Slavering Ghoul"]] = 8, -- just for debug
 	[L["Firesworn"]] = 8,
@@ -1885,9 +1913,24 @@ local pack_marks = { -- negative index does reverse order, eg -1 marks skull, -2
 	-- mixed group Majordomo adds
 	[L["Flamewaker Healer"]] = 4,
 	[L["Flamewaker Elite"]] = -4,
+	-- Buru Eggs
+	[L["Buru Egg"]] = 8,
+	-- Fankriss adds
+	[L["Spawn of Fankriss"]] = -3,
+	-- AQ40
+	[L["Vekniss Warrior"]] = 3,
+	[L["Vekniss Wasp"]] = -3,
+	[L["Vekniss Guardian"]] = -6,
+	[L["Qiraji Mindslayer"]] = -4,
+	[L["Qiraji Slayer"]] = 3,
+  [L["Anubisath Sentinel"]] = 4,
+  -- Naxx
+  [L["Naxxramas Follower"]] = 4,
+  [L["Naxxramas Worshipper"]] = -2,
+  [L["Naxxramas Acolyte"]] = -4,
+  [L["Naxxramas Cultist"]] = 4,
 }
 function srti.PackMark(name)
-	-- for debug
 	local pack = pack_marks[name]
 	if pack ~= nil then
 		if pack < 0 then
